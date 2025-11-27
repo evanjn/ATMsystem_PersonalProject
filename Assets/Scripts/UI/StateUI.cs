@@ -9,15 +9,16 @@ public class StateUI : MonoBehaviour
 
     void Start()
     {
-        UpdateAccountUI();
+        Refresh();
     }
 
-    private void UpdateAccountUI()
+    public void Refresh()
     {
         UserData data = GameManager.Instance.userData;
 
         userNameText.text = data.userName;
         cashText.text = data.accountCash.ToString("N0");
         balanceText.text = data.accountBalance.ToString("N0");
+        Debug.Log($"[UI REFRESH] Cash: {data.accountCash}, Balance: {data.accountBalance}");
     }
 }
